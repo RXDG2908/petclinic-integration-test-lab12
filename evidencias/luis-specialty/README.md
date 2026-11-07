@@ -56,18 +56,30 @@ SpecialtyControllerMockitoTest implementa los nueve escenarios exigidos por TASK
 
 Los horarios son opcionales para mantener las peticiones anteriores que solo enviaban el nombre. Al enviarlos se exigen ambas horas, valores de 0 a 23 y apertura menor que cierre.
 
-## Capturas manuales pendientes
+## Capturas originales aportadas por Luis Abad
 
-No se generaron imágenes. La herramienta de captura del entorno no pudo iniciar y devolvió dos veces “trusted Node process exited unexpectedly; kernel reset, rerun your request”.
+Las tres imágenes PNG fueron proporcionadas y verificadas por Luis. Se copiaron desde Lab12/Evidencias al directorio evidencias ya existente en la raíz del repositorio, conservando sus nombres descriptivos. Se verificó que los hashes SHA-256 del original y de la copia coinciden. Las imágenes se publican sin modificaciones.
 
-Para el informe, abrir los archivos reales en IntelliJ IDEA o en un editor y tomar capturas con Recortes de Windows. Mantener visibles el nombre del archivo y los resultados. Evitar otras ventanas y datos personales.
+| Captura | Qué demuestra |
+|---|---|
+| [01-pr-fusionado.png](../01-pr-fusionado.png) | GitHub muestra el PR #3 con estado Merged y su integración en main. La captura corresponde al estado fusionado de ese PR, anterior a la publicación posterior de los commits de Luis. |
+| [02-commits-luis.png](../02-commits-luis.png) | Historial de feature/abad-specialty con Itssmann como autor de los commits de implementación 5424072 y 55ad1b1 y del commit de evidencias 3c0f0e2. |
+| [03-pruebas-specialty.png](../03-pruebas-specialty.png) | Ejecución real de SpecialtyControllerTest con 14 pruebas, 0 fallos, 0 errores, 0 omitidas y BUILD SUCCESS. La captura muestra una duración total de 16.656 s y finalización a las 23:09:30 del 6 de noviembre de 2026, hora de Lima. |
 
-1. Abrir specialty-tests.log al final. Capturar las líneas de ambas clases, el total de 23 y BUILD SUCCESS.
-2. Abrir full-tests.log al final. Capturar el total de 50 y BUILD SUCCESS. Identificarla como ejecución anterior de la rama.
-3. Abrir compatibility-tests.log al final junto con el apartado de procedencia de este README. Capturar el total de 72 y rotular en el documento “Comprobación conjunta en copia temporal”.
-4. Abrir validacion-actual.log al final. Capturar el resultado posterior a la incorporación de cambios remotos.
-5. Abrir historial-git.txt y commits-luis.txt. Capturar los commits 5424072 y 55ad1b1 con su autor.
-6. Abrir SpecialtyControllerTest.java. Capturar los cuatro métodos pendientes ya implementados y la anotación @Transactional.
-7. Abrir SpecialtyControllerMockitoTest.java. Capturar @MockitoBean y los casos de búsqueda, creación, error y borrado.
+Comando de la ejecución H2 documentada por Luis.
 
-Las capturas deben mostrar resultados reales completos y legibles. No reconstruir una terminal ni editar los conteos. Guardar las imágenes manuales en esta misma carpeta cuando estén disponibles.
+    .\mvnw.cmd test "-Dtest=SpecialtyControllerTest" "-Dspring.profiles.active=h2"
+
+## Diferencia entre las ejecuciones
+
+- Las 14 pruebas de la captura corresponden únicamente a SpecialtyControllerTest, con H2.
+- Las 23 pruebas del reporte specialty-tests.log suman 14 H2 y 9 Mockito de Specialty.
+- Las 50 pruebas de full-tests.log corresponden a la suite completa de la rama antes de incorporar los cambios remotos posteriores.
+- Las 65 pruebas de validacion-actual.log corresponden a la suite completa después de incorporar Vet y Visit desde la rama remota.
+- Las 72 pruebas de compatibility-tests.log corresponden a la comprobación conjunta en una copia temporal con Owner, Vet, Visit y Specialty.
+
+Todos esos reportes registran cero fallos, cero errores, cero omitidas y BUILD SUCCESS. Son ejecuciones de distinto alcance.
+
+reintento-specialty.log conserva otra ejecución real del comando H2 de 14 pruebas, realizada antes de recibir las capturas. Su duración fue 16.369 s. El log y la captura de 16.656 s pertenecen a corridas distintas.
+
+Los intentos automáticos anteriores de captura fallaron por “windows sandbox failed: registered runtime ownership is missing”. Las tres imágenes de esta sección proceden de Luis y ya están disponibles como evidencias originales.

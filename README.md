@@ -14,10 +14,10 @@ Cada entidad tiene su controlador REST, su repositorio, su DTO y su clase `XxxCo
 | Parte | Integrante | Entidades | Rama |
 |---|---|---|---|
 | 1 | Renzo León | Vet y Visit | feature/renzo-vet-visit |
-| 2 | David | Owner | feature/david-owner |
-| 3 | Abad | Specialty | feature/abad-specialty |
+| 2 | David (Davish-pxl) | Owner | feature/david-owner |
+| 3 | Abad (Itssmann) | Specialty | feature/abad-specialty |
 
 ### Avance
 - [x] Parte 1 - Vet y Visit
-- [ ] Parte 2 - Owner
-- [ ] Parte 3 - Specialty
+- [x] Parte 2 - Owner
+- [x] Parte 3 - Specialty

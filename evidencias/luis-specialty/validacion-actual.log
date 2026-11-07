@@ -1,0 +1,1103 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.tecsup:petclinic >------------------------
+[INFO] Building PetClinic 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ petclinic ---
+[INFO] Deleting C:\Users\denis\OneDrive\Documentos\a\4to ciclo\Construcci�n y Pruebas de Software\Lab12\petclinic-integration-test-lab12\target
+[INFO] 
+[INFO] --- jacoco:0.8.13:prepare-agent (default) @ petclinic ---
+[INFO] argLine set to "-javaagent:C:\\Users\\denis\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.13\\org.jacoco.agent-0.8.13-runtime.jar=destfile=C:\\Users\\denis\\OneDrive\\Documentos\\a\\4to ciclo\\Construcci�n y Pruebas de Software\\Lab12\\petclinic-integration-test-lab12\\target\\jacoco.exec"
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ petclinic ---
+[INFO] Copying 4 resources from src\main\resources to target\classes
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ petclinic ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 25 source files with javac [debug parameters release 21] to target\classes
+[WARNING] /C:/Users/denis/OneDrive/Documentos/a/4to ciclo/Construcci�n y Pruebas de Software/Lab12/petclinic-integration-test-lab12/src/main/java/com/tecsup/petclinic/mapper/PetMapper.java:[24,13] Unmapped target property: "visits".
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ petclinic ---
+[INFO] skip non existing resourceDirectory C:\Users\denis\OneDrive\Documentos\a\4to ciclo\Construcci�n y Pruebas de Software\Lab12\petclinic-integration-test-lab12\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ petclinic ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 14 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ petclinic ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.tecsup.petclinic.PetClinicApplicationTests
+22:54:31.865 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.tecsup.petclinic.PetClinicApplicationTests]: PetClinicApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:54:32.179 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.tecsup.petclinic.PetClinicApplication for test class com.tecsup.petclinic.PetClinicApplicationTests
+22:54:32.583 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2026-11-06T22:54:33.319-05:00  INFO 8940 --- [           main] c.t.petclinic.PetClinicApplicationTests  : Starting PetClinicApplicationTests using Java 21.0.12 with PID 8940 (started by Pablito in C:\Users\denis\OneDrive\Documentos\a\4to ciclo\Construcci�n y Pruebas de Software\Lab12\petclinic-integration-test-lab12)
+2026-11-06T22:54:33.323-05:00  INFO 8940 --- [           main] c.t.petclinic.PetClinicApplicationTests  : The following 1 profile is active: "h2"
+2026-11-06T22:54:35.156-05:00  INFO 8940 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-06T22:54:35.272-05:00  INFO 8940 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99 ms. Found 4 JPA repository interfaces.
+2026-11-06T22:54:36.055-05:00  INFO 8940 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-11-06T22:54:36.199-05:00  INFO 8940 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2026-11-06T22:54:36.286-05:00  INFO 8940 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-11-06T22:54:36.912-05:00  INFO 8940 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-06T22:54:36.972-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-06T22:54:37.493-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-11-06T22:54:37.495-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-06T22:54:37.541-05:00  WARN 8940 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-11-06T22:54:37.578-05:00  INFO 8940 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-06T22:54:39.209-05:00  INFO 8940 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-06T22:54:39.213-05:00  INFO 8940 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-06T22:54:40.037-05:00  WARN 8940 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-06T22:54:40.910-05:00  INFO 8940 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2026-11-06T22:54:41.077-05:00  INFO 8940 --- [           main] c.t.petclinic.PetClinicApplicationTests  : Started PetClinicApplicationTests in 8.519 seconds (process running for 10.865)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\denis\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.7\byte-buddy-agent-1.17.7.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.01 s -- in com.tecsup.petclinic.PetClinicApplicationTests
+[INFO] Running com.tecsup.petclinic.services.PetServiceMockitoTest
+2026-11-06T22:54:41.514-05:00  INFO 8940 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tecsup.petclinic.services.PetServiceMockitoTest]: PetServiceMockitoTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-06T22:54:41.536-05:00  INFO 8940 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tecsup.petclinic.PetClinicApplication for test class com.tecsup.petclinic.services.PetServiceMockitoTest
+2026-11-06T22:54:41.543-05:00  INFO 8940 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2026-11-06T22:54:41.584-05:00  INFO 8940 --- [           main] c.t.p.services.PetServiceMockitoTest     : Starting PetServiceMockitoTest using Java 21.0.12 with PID 8940 (started by Pablito in C:\Users\denis\OneDrive\Documentos\a\4to ciclo\Construcci�n y Pruebas de Software\Lab12\petclinic-integration-test-lab12)
+2026-11-06T22:54:41.585-05:00  INFO 8940 --- [           main] c.t.p.services.PetServiceMockitoTest     : The following 1 profile is active: "h2"
+2026-11-06T22:54:41.793-05:00  INFO 8940 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-06T22:54:41.816-05:00  INFO 8940 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 4 JPA repository interfaces.
+2026-11-06T22:54:42.525-05:00  INFO 8940 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-11-06T22:54:42.532-05:00  INFO 8940 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-11-06T22:54:42.554-05:00  INFO 8940 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-06T22:54:42.555-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-11-06T22:54:42.558-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=SA
+2026-11-06T22:54:42.558-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-11-06T22:54:42.559-05:00  WARN 8940 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-11-06T22:54:42.560-05:00  INFO 8940 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-06T22:54:42.642-05:00  INFO 8940 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-06T22:54:42.643-05:00  INFO 8940 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-06T22:54:42.792-05:00  WARN 8940 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-06T22:54:43.064-05:00  INFO 8940 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2026-11-06T22:54:43.186-05:00  INFO 8940 --- [           main] c.t.p.services.PetServiceMockitoTest     : Started PetServiceMockitoTest in 1.643 seconds (process running for 12.974)
+Converting string to date: 
+2026-11-06T22:54:43.277-05:00  INFO 8940 --- [           main] c.t.p.services.PetServiceMockitoTest     : PetDTO(id=4000, name=Bear, typeId=1, ownerId=1, birthDate=)
+Converting string to date: 
+Converting string to date: 
+2026-11-06T22:54:43.286-05:00  INFO 8940 --- [           main] c.t.p.services.PetServiceMockitoTest     : {}PetDTO(id=4000, name=Bear2, typeId=2, ownerId=2, birthDate=)
+2026-11-06T22:54:43.309-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceImpl    : Pet(id=1, name=Leo, typeId=1, ownerId=1, birthDate=null)
+2026-11-06T22:54:43.320-05:00  INFO 8940 --- [           main] c.t.p.services.PetServiceMockitoTest     : Pet(id=1, name=Leo, typeId=1, ownerId=1, birthDate=null)
+2026-11-06T22:54:43.320-05:00  INFO 8940 --- [           main] c.t.p.services.PetServiceMockitoTest     : PetDTO(id=1, name=Leo, typeId=1, ownerId=1, birthDate=)
+2026-11-06T22:54:43.329-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceImpl    : Pet(id=12, name=Lucky, typeId=2, ownerId=10, birthDate=null)
+2026-11-06T22:54:43.331-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceImpl    : Pet(id=13, name=Sly, typeId=1, ownerId=10, birthDate=null)
+Converting string to date: 
+2026-11-06T22:54:43.342-05:00  INFO 8940 --- [           main] c.t.p.services.PetServiceMockitoTest     : PetDTO(id=2000, name=Bird, typeId=1, ownerId=1, birthDate=)
+Converting string to date: 
+Converting string to date: 
+2026-11-06T22:54:43.358-05:00  INFO 8940 --- [           main] c.t.p.services.PetServiceMockitoTest     : Pet created : PetDTO(id=1000, name=Punky, typeId=1, ownerId=1, birthDate=)
+2026-11-06T22:54:43.369-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceImpl    : Pet(id=9, name=Lucky, typeId=5, ownerId=7, birthDate=null)
+2026-11-06T22:54:43.369-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceImpl    : Pet(id=11, name=Freddy, typeId=5, ownerId=9, birthDate=null)
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.863 s -- in com.tecsup.petclinic.services.PetServiceMockitoTest
+[INFO] Running com.tecsup.petclinic.services.PetServiceTest
+2026-11-06T22:54:43.381-05:00  INFO 8940 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tecsup.petclinic.services.PetServiceTest]: PetServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-06T22:54:43.384-05:00  INFO 8940 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tecsup.petclinic.PetClinicApplication for test class com.tecsup.petclinic.services.PetServiceTest
+2026-11-06T22:54:43.393-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceTest    : >PetDTO(id=null, name=Bear, typeId=1, ownerId=1, birthDate=null)
+Converting string to date: null
+Hibernate: insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)
+2026-11-06T22:54:43.623-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceTest    : >>PetDTO(id=14, name=Bear, typeId=1, ownerId=1, birthDate=)
+Converting string to date: 
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id,v1_0.pet_id,v1_0.id,v1_0.description,v1_0.visit_date from pets p1_0 left join visits v1_0 on p1_0.id=v1_0.pet_id where p1_0.id=?
+Hibernate: update pets set birth_date=?,name=?,owner_id=?,type_id=? where id=?
+2026-11-06T22:54:43.742-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceTest    : >>>>PetDTO(id=14, name=Bear2, typeId=2, ownerId=2, birthDate=)
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.name=?
+2026-11-06T22:54:44.033-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceImpl    : Pet(id=1, name=Leo, typeId=1, ownerId=1, birthDate=2000-09-07 00:00:00.0)
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.owner_id=?
+2026-11-06T22:54:44.069-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceImpl    : Pet(id=12, name=Lucky, typeId=2, ownerId=10, birthDate=2000-06-24 00:00:00.0)
+2026-11-06T22:54:44.069-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceImpl    : Pet(id=13, name=Sly, typeId=1, ownerId=10, birthDate=2002-06-08 00:00:00.0)
+Converting string to date: null
+Hibernate: insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)
+2026-11-06T22:54:44.083-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceTest    : PetDTO(id=null, name=Bird, typeId=1, ownerId=1, birthDate=null)
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Converting string to date: 
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.description,v1_0.visit_date from visits v1_0 where v1_0.pet_id=?
+Hibernate: delete from pets where id=?
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Converting string to date: null
+Hibernate: insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)
+2026-11-06T22:54:44.137-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceTest    : PET CREATED :PetDTO(id=16, name=Ponky, typeId=1, ownerId=1, birthDate=)
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.type_id=?
+2026-11-06T22:54:44.150-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceImpl    : Pet(id=9, name=Lucky, typeId=5, ownerId=7, birthDate=1999-08-06 00:00:00.0)
+2026-11-06T22:54:44.150-05:00  INFO 8940 --- [           main] c.t.petclinic.services.PetServiceImpl    : Pet(id=11, name=Freddy, typeId=5, ownerId=9, birthDate=2000-03-09 00:00:00.0)
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.777 s -- in com.tecsup.petclinic.services.PetServiceTest
+[INFO] Running com.tecsup.petclinic.webs.PetControllerMockitoTest
+2026-11-06T22:54:44.161-05:00  INFO 8940 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tecsup.petclinic.webs.PetControllerMockitoTest]: PetControllerMockitoTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-06T22:54:44.194-05:00  INFO 8940 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tecsup.petclinic.PetClinicApplication for test class com.tecsup.petclinic.webs.PetControllerMockitoTest
+2026-11-06T22:54:44.200-05:00  INFO 8940 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2026-11-06T22:54:44.247-05:00  INFO 8940 --- [           main] c.t.p.webs.PetControllerMockitoTest      : Starting PetControllerMockitoTest using Java 21.0.12 with PID 8940 (started by Pablito in C:\Users\denis\OneDrive\Documentos\a\4to ciclo\Construcci�n y Pruebas de Software\Lab12\petclinic-integration-test-lab12)
+2026-11-06T22:54:44.248-05:00  INFO 8940 --- [           main] c.t.p.webs.PetControllerMockitoTest      : The following 1 profile is active: "h2"
+2026-11-06T22:54:44.560-05:00  INFO 8940 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-06T22:54:44.599-05:00  INFO 8940 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 4 JPA repository interfaces.
+2026-11-06T22:54:44.897-05:00  INFO 8940 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-11-06T22:54:44.904-05:00  INFO 8940 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-11-06T22:54:44.928-05:00  INFO 8940 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-06T22:54:44.930-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-11-06T22:54:44.932-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:testdb user=SA
+2026-11-06T22:54:44.932-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-11-06T22:54:44.933-05:00  WARN 8940 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-11-06T22:54:44.934-05:00  INFO 8940 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-06T22:54:45.020-05:00  INFO 8940 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-06T22:54:45.021-05:00  INFO 8940 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-06T22:54:45.134-05:00  WARN 8940 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-06T22:54:45.450-05:00  INFO 8940 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2026-11-06T22:54:45.551-05:00  INFO 8940 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-06T22:54:45.553-05:00  INFO 8940 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-06T22:54:45.554-05:00  INFO 8940 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-11-06T22:54:45.573-05:00  INFO 8940 --- [           main] c.t.p.webs.PetControllerMockitoTest      : Started PetControllerMockitoTest in 1.374 seconds (process running for 15.361)
+Converting string to date: 2000-09-07
+Converting string to date: 2002-08-06
+Converting string to date: 2001-04-17
+Converting string to date: 2000-03-07
+Converting string to date: 2000-11-30
+2026-11-06T22:54:45.703-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : pets: [Pet(id=1, name=Leo, typeId=1, ownerId=1, birthDate=Thu Sep 07 00:00:00 PET 2000), Pet(id=2, name=Basil, typeId=6, ownerId=2, birthDate=Tue Aug 06 00:00:00 PET 2002), Pet(id=3, name=Rosy, typeId=2, ownerId=3, birthDate=Tue Apr 17 00:00:00 PET 2001), Pet(id=4, name=Jewel, typeId=2, ownerId=3, birthDate=Tue Mar 07 00:00:00 PET 2000), Pet(id=5, name=Iggy, typeId=3, ownerId=4, birthDate=Thu Nov 30 00:00:00 PET 2000)]
+2026-11-06T22:54:45.704-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=1, name=Leo, typeId=1, ownerId=1, birthDate=Thu Sep 07 00:00:00 PET 2000) 
+2026-11-06T22:54:45.704-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=2, name=Basil, typeId=6, ownerId=2, birthDate=Tue Aug 06 00:00:00 PET 2002) 
+2026-11-06T22:54:45.704-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=3, name=Rosy, typeId=2, ownerId=3, birthDate=Tue Apr 17 00:00:00 PET 2001) 
+2026-11-06T22:54:45.705-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=4, name=Jewel, typeId=2, ownerId=3, birthDate=Tue Mar 07 00:00:00 PET 2000) 
+2026-11-06T22:54:45.705-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=5, name=Iggy, typeId=3, ownerId=4, birthDate=Thu Nov 30 00:00:00 PET 2000) 
+2026-11-06T22:54:45.706-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : petsTO: [PetDTO(id=1, name=Leo, typeId=1, ownerId=1, birthDate=2000-09-07), PetDTO(id=2, name=Basil, typeId=6, ownerId=2, birthDate=2002-08-06), PetDTO(id=3, name=Rosy, typeId=2, ownerId=3, birthDate=2001-04-17), PetDTO(id=4, name=Jewel, typeId=2, ownerId=3, birthDate=2000-03-07), PetDTO(id=5, name=Iggy, typeId=3, ownerId=4, birthDate=2000-11-30)]
+2026-11-06T22:54:45.706-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=1, name=Leo, typeId=1, ownerId=1, birthDate=2000-09-07) 
+2026-11-06T22:54:45.706-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=2, name=Basil, typeId=6, ownerId=2, birthDate=2002-08-06) 
+2026-11-06T22:54:45.707-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=3, name=Rosy, typeId=2, ownerId=3, birthDate=2001-04-17) 
+2026-11-06T22:54:45.707-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=4, name=Jewel, typeId=2, ownerId=3, birthDate=2000-03-07) 
+2026-11-06T22:54:45.707-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=5, name=Iggy, typeId=3, ownerId=4, birthDate=2000-11-30) 
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /pets
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"80"]
+             Body = {"id":10000,"name":"Beethoven3","typeId":1,"ownerId":1,"birthDate":"2020-05-20"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.PetController
+           Method = com.tecsup.petclinic.webs.PetController#create(PetDTO)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":10000,"name":"Beethoven3","typeId":1,"ownerId":1,"birthDate":"2020-05-20"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /pets/1
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.PetController
+           Method = com.tecsup.petclinic.webs.PetController#findById(Integer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":1,"name":"Leo","typeId":1,"ownerId":1,"birthDate":"2000-09-07"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /pets
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"76"]
+             Body = {"id":-1,"name":"Beethoven","typeId":1,"ownerId":1,"birthDate":"2020-05-20"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.PetController
+           Method = com.tecsup.petclinic.webs.PetController#create(PetDTO)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":-1,"name":"Beethoven","typeId":1,"ownerId":1,"birthDate":"2020-05-20"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.911 s -- in com.tecsup.petclinic.webs.PetControllerMockitoTest
+[INFO] Running com.tecsup.petclinic.webs.PetControllerTest
+2026-11-06T22:54:46.073-05:00  INFO 8940 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tecsup.petclinic.webs.PetControllerTest]: PetControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-06T22:54:46.077-05:00  INFO 8940 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tecsup.petclinic.PetClinicApplication for test class com.tecsup.petclinic.webs.PetControllerTest
+2026-11-06T22:54:46.080-05:00  INFO 8940 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2026-11-06T22:54:46.115-05:00  INFO 8940 --- [           main] c.t.petclinic.webs.PetControllerTest     : Starting PetControllerTest using Java 21.0.12 with PID 8940 (started by Pablito in C:\Users\denis\OneDrive\Documentos\a\4to ciclo\Construcci�n y Pruebas de Software\Lab12\petclinic-integration-test-lab12)
+2026-11-06T22:54:46.116-05:00  INFO 8940 --- [           main] c.t.petclinic.webs.PetControllerTest     : The following 1 profile is active: "h2"
+2026-11-06T22:54:46.316-05:00  INFO 8940 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-06T22:54:46.339-05:00  INFO 8940 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 4 JPA repository interfaces.
+2026-11-06T22:54:46.436-05:00  INFO 8940 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-11-06T22:54:46.442-05:00  INFO 8940 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-11-06T22:54:46.454-05:00  INFO 8940 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-06T22:54:46.455-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-11-06T22:54:46.457-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection conn30: url=jdbc:h2:mem:testdb user=SA
+2026-11-06T22:54:46.457-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-11-06T22:54:46.458-05:00  WARN 8940 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-11-06T22:54:46.458-05:00  INFO 8940 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-06T22:54:46.518-05:00  INFO 8940 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-06T22:54:46.518-05:00  INFO 8940 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-06T22:54:46.591-05:00  WARN 8940 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-06T22:54:46.754-05:00  INFO 8940 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2026-11-06T22:54:46.804-05:00  INFO 8940 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-06T22:54:46.805-05:00  INFO 8940 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-06T22:54:46.806-05:00  INFO 8940 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-11-06T22:54:46.815-05:00  INFO 8940 --- [           main] c.t.petclinic.webs.PetControllerTest     : Started PetControllerTest in 0.734 seconds (process running for 16.603)
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Converting string to date: 2020-05-20
+Hibernate: insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /pets
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"79"]
+             Body = {"id":null,"name":"Beethoven4","typeId":1,"ownerId":1,"birthDate":"2020-05-20"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.PetController
+           Method = com.tecsup.petclinic.webs.PetController#create(PetDTO)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":14,"name":"Beethoven4","typeId":1,"ownerId":1,"birthDate":"2020-05-20"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Converting string to date: 2020-05-20
+Hibernate: update pets set birth_date=?,name=?,owner_id=?,type_id=? where id=?
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /pets/14
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"69"]
+             Body = {"id":14,"name":"Beethoven5","typeId":2,"ownerId":2,"birthDate":null}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.PetController
+           Method = com.tecsup.petclinic.webs.PetController#update(PetDTO, Integer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":14,"name":"Beethoven5","typeId":2,"ownerId":2,"birthDate":"2020-05-20"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /pets/14
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.PetController
+           Method = com.tecsup.petclinic.webs.PetController#findById(Integer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":14,"name":"Beethoven5","typeId":2,"ownerId":2,"birthDate":"2020-05-20"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Converting string to date: 2020-05-20
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.description,v1_0.visit_date from visits v1_0 where v1_0.pet_id=?
+Hibernate: delete from pets where id=?
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0
+2026-11-06T22:54:46.892-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : pets: [Pet(id=1, name=Leo, typeId=1, ownerId=1, birthDate=2000-09-07 00:00:00.0), Pet(id=2, name=Basil, typeId=6, ownerId=2, birthDate=2002-08-06 00:00:00.0), Pet(id=3, name=Rosy, typeId=2, ownerId=3, birthDate=2001-04-17 00:00:00.0), Pet(id=4, name=Jewel, typeId=2, ownerId=3, birthDate=2000-03-07 00:00:00.0), Pet(id=5, name=Iggy, typeId=3, ownerId=4, birthDate=2000-11-30 00:00:00.0), Pet(id=6, name=George, typeId=4, ownerId=5, birthDate=2000-01-20 00:00:00.0), Pet(id=7, name=Samantha, typeId=1, ownerId=6, birthDate=1995-09-04 00:00:00.0), Pet(id=8, name=Max, typeId=1, ownerId=6, birthDate=1995-09-04 00:00:00.0), Pet(id=9, name=Lucky, typeId=5, ownerId=7, birthDate=1999-08-06 00:00:00.0), Pet(id=10, name=Mulligan, typeId=2, ownerId=8, birthDate=1997-02-24 00:00:00.0), Pet(id=11, name=Freddy, typeId=5, ownerId=9, birthDate=2000-03-09 00:00:00.0), Pet(id=12, name=Lucky, typeId=2, ownerId=10, birthDate=2000-06-24 00:00:00.0), Pet(id=13, name=Sly, typeId=1, ownerId=10, birthDate=2002-06-08 00:00:00.0)]
+2026-11-06T22:54:46.893-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=1, name=Leo, typeId=1, ownerId=1, birthDate=2000-09-07 00:00:00.0) 
+2026-11-06T22:54:46.893-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=2, name=Basil, typeId=6, ownerId=2, birthDate=2002-08-06 00:00:00.0) 
+2026-11-06T22:54:46.893-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=3, name=Rosy, typeId=2, ownerId=3, birthDate=2001-04-17 00:00:00.0) 
+2026-11-06T22:54:46.893-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=4, name=Jewel, typeId=2, ownerId=3, birthDate=2000-03-07 00:00:00.0) 
+2026-11-06T22:54:46.893-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=5, name=Iggy, typeId=3, ownerId=4, birthDate=2000-11-30 00:00:00.0) 
+2026-11-06T22:54:46.893-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=6, name=George, typeId=4, ownerId=5, birthDate=2000-01-20 00:00:00.0) 
+2026-11-06T22:54:46.893-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=7, name=Samantha, typeId=1, ownerId=6, birthDate=1995-09-04 00:00:00.0) 
+2026-11-06T22:54:46.893-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=8, name=Max, typeId=1, ownerId=6, birthDate=1995-09-04 00:00:00.0) 
+2026-11-06T22:54:46.893-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=9, name=Lucky, typeId=5, ownerId=7, birthDate=1999-08-06 00:00:00.0) 
+2026-11-06T22:54:46.894-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=10, name=Mulligan, typeId=2, ownerId=8, birthDate=1997-02-24 00:00:00.0) 
+2026-11-06T22:54:46.894-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=11, name=Freddy, typeId=5, ownerId=9, birthDate=2000-03-09 00:00:00.0) 
+2026-11-06T22:54:46.894-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=12, name=Lucky, typeId=2, ownerId=10, birthDate=2000-06-24 00:00:00.0) 
+2026-11-06T22:54:46.894-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : Pet >>  Pet(id=13, name=Sly, typeId=1, ownerId=10, birthDate=2002-06-08 00:00:00.0) 
+2026-11-06T22:54:46.895-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : petsTO: [PetDTO(id=1, name=Leo, typeId=1, ownerId=1, birthDate=2000-09-07), PetDTO(id=2, name=Basil, typeId=6, ownerId=2, birthDate=2002-08-06), PetDTO(id=3, name=Rosy, typeId=2, ownerId=3, birthDate=2001-04-17), PetDTO(id=4, name=Jewel, typeId=2, ownerId=3, birthDate=2000-03-07), PetDTO(id=5, name=Iggy, typeId=3, ownerId=4, birthDate=2000-11-30), PetDTO(id=6, name=George, typeId=4, ownerId=5, birthDate=2000-01-20), PetDTO(id=7, name=Samantha, typeId=1, ownerId=6, birthDate=1995-09-04), PetDTO(id=8, name=Max, typeId=1, ownerId=6, birthDate=1995-09-04), PetDTO(id=9, name=Lucky, typeId=5, ownerId=7, birthDate=1999-08-06), PetDTO(id=10, name=Mulligan, typeId=2, ownerId=8, birthDate=1997-02-24), PetDTO(id=11, name=Freddy, typeId=5, ownerId=9, birthDate=2000-03-09), PetDTO(id=12, name=Lucky, typeId=2, ownerId=10, birthDate=2000-06-24), PetDTO(id=13, name=Sly, typeId=1, ownerId=10, birthDate=2002-06-08)]
+2026-11-06T22:54:46.895-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=1, name=Leo, typeId=1, ownerId=1, birthDate=2000-09-07) 
+2026-11-06T22:54:46.895-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=2, name=Basil, typeId=6, ownerId=2, birthDate=2002-08-06) 
+2026-11-06T22:54:46.895-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=3, name=Rosy, typeId=2, ownerId=3, birthDate=2001-04-17) 
+2026-11-06T22:54:46.895-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=4, name=Jewel, typeId=2, ownerId=3, birthDate=2000-03-07) 
+2026-11-06T22:54:46.896-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=5, name=Iggy, typeId=3, ownerId=4, birthDate=2000-11-30) 
+2026-11-06T22:54:46.896-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=6, name=George, typeId=4, ownerId=5, birthDate=2000-01-20) 
+2026-11-06T22:54:46.896-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=7, name=Samantha, typeId=1, ownerId=6, birthDate=1995-09-04) 
+2026-11-06T22:54:46.896-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=8, name=Max, typeId=1, ownerId=6, birthDate=1995-09-04) 
+2026-11-06T22:54:46.896-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=9, name=Lucky, typeId=5, ownerId=7, birthDate=1999-08-06) 
+2026-11-06T22:54:46.896-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=10, name=Mulligan, typeId=2, ownerId=8, birthDate=1997-02-24) 
+2026-11-06T22:54:46.896-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=11, name=Freddy, typeId=5, ownerId=9, birthDate=2000-03-09) 
+2026-11-06T22:54:46.896-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=12, name=Lucky, typeId=2, ownerId=10, birthDate=2000-06-24) 
+2026-11-06T22:54:46.896-05:00  INFO 8940 --- [           main] c.tecsup.petclinic.webs.PetController    : PetTO >>  PetDTO(id=13, name=Sly, typeId=1, ownerId=10, birthDate=2002-06-08) 
+Converting string to date: 2020-05-20
+Hibernate: insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /pets
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"79"]
+             Body = {"id":null,"name":"Beethoven3","typeId":1,"ownerId":1,"birthDate":"2020-05-20"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.PetController
+           Method = com.tecsup.petclinic.webs.PetController#create(PetDTO)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":15,"name":"Beethoven3","typeId":1,"ownerId":1,"birthDate":"2020-05-20"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Converting string to date: 2020-05-20
+Hibernate: select v1_0.pet_id,v1_0.id,v1_0.description,v1_0.visit_date from visits v1_0 where v1_0.pet_id=?
+Hibernate: delete from pets where id=?
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /pets/1
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.PetController
+           Method = com.tecsup.petclinic.webs.PetController#findById(Integer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":1,"name":"Leo","typeId":1,"ownerId":1,"birthDate":"2000-09-07"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Converting string to date: 2020-05-20
+Hibernate: insert into pets (birth_date,name,owner_id,type_id,id) values (?,?,?,?,default)
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /pets
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"78"]
+             Body = {"id":null,"name":"Beethoven","typeId":1,"ownerId":1,"birthDate":"2020-05-20"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.PetController
+           Method = com.tecsup.petclinic.webs.PetController#create(PetDTO)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":16,"name":"Beethoven","typeId":1,"ownerId":1,"birthDate":"2020-05-20"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.886 s -- in com.tecsup.petclinic.webs.PetControllerTest
+[INFO] Running com.tecsup.petclinic.webs.SpecialtyControllerMockitoTest
+2026-11-06T22:54:46.961-05:00  INFO 8940 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tecsup.petclinic.webs.SpecialtyControllerMockitoTest]: SpecialtyControllerMockitoTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-06T22:54:46.965-05:00  INFO 8940 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tecsup.petclinic.PetClinicApplication for test class com.tecsup.petclinic.webs.SpecialtyControllerMockitoTest
+2026-11-06T22:54:46.971-05:00  INFO 8940 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2026-11-06T22:54:47.003-05:00  INFO 8940 --- [           main] c.t.p.w.SpecialtyControllerMockitoTest   : Starting SpecialtyControllerMockitoTest using Java 21.0.12 with PID 8940 (started by Pablito in C:\Users\denis\OneDrive\Documentos\a\4to ciclo\Construcci�n y Pruebas de Software\Lab12\petclinic-integration-test-lab12)
+2026-11-06T22:54:47.005-05:00  INFO 8940 --- [           main] c.t.p.w.SpecialtyControllerMockitoTest   : The following 1 profile is active: "h2"
+2026-11-06T22:54:47.208-05:00  INFO 8940 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-06T22:54:47.231-05:00  INFO 8940 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 4 JPA repository interfaces.
+2026-11-06T22:54:47.388-05:00  INFO 8940 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-11-06T22:54:47.392-05:00  INFO 8940 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-11-06T22:54:47.404-05:00  INFO 8940 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-06T22:54:47.405-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2026-11-06T22:54:47.407-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection conn40: url=jdbc:h2:mem:testdb user=SA
+2026-11-06T22:54:47.407-05:00  INFO 8940 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2026-11-06T22:54:47.408-05:00  WARN 8940 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-11-06T22:54:47.408-05:00  INFO 8940 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-5)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-06T22:54:47.463-05:00  INFO 8940 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-06T22:54:47.463-05:00  INFO 8940 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-06T22:54:47.523-05:00  WARN 8940 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-06T22:54:47.733-05:00  INFO 8940 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2026-11-06T22:54:47.783-05:00  INFO 8940 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-06T22:54:47.784-05:00  INFO 8940 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-06T22:54:47.784-05:00  INFO 8940 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-11-06T22:54:47.793-05:00  INFO 8940 --- [           main] c.t.p.w.SpecialtyControllerMockitoTest   : Started SpecialtyControllerMockitoTest in 0.823 seconds (process running for 17.581)
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.997 s -- in com.tecsup.petclinic.webs.SpecialtyControllerMockitoTest
+[INFO] Running com.tecsup.petclinic.webs.SpecialtyControllerTest
+2026-11-06T22:54:47.961-05:00  INFO 8940 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tecsup.petclinic.webs.SpecialtyControllerTest]: SpecialtyControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-06T22:54:47.966-05:00  INFO 8940 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tecsup.petclinic.PetClinicApplication for test class com.tecsup.petclinic.webs.SpecialtyControllerTest
+Hibernate: select s1_0.id,s1_0.h_close,s1_0.name,s1_0.office,s1_0.h_open from specialties s1_0 where s1_0.office=? order by s1_0.id
+Hibernate: insert into specialties (h_close,name,office,h_open,id) values (?,?,?,?,default)
+Hibernate: select s1_0.id,s1_0.h_close,s1_0.name,s1_0.office,s1_0.h_open from specialties s1_0 where s1_0.name=? and s1_0.office=? order by s1_0.id
+Hibernate: select s1_0.id,s1_0.h_close,s1_0.name,s1_0.office,s1_0.h_open from specialties s1_0 where s1_0.name=? order by s1_0.id
+Hibernate: insert into specialties (h_close,name,office,h_open,id) values (?,?,?,?,default)
+Hibernate: insert into specialties (h_close,name,office,h_open,id) values (?,?,?,?,default)
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /specialties/6
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"70"]
+             Body = {"id":6,"name":"neurology","office":null,"h_open":null,"h_close":null}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.SpecialtyController
+           Method = com.tecsup.petclinic.webs.SpecialtyController#update(SpecialtyDTO, Integer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":6,"name":"neurology","office":null,"h_open":null,"h_close":null}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: select s1_0.id,s1_0.h_close,s1_0.name,s1_0.office,s1_0.h_open from specialties s1_0 where s1_0.id=?
+Hibernate: select s1_0.id,s1_0.h_close,s1_0.name,s1_0.office,s1_0.h_open from specialties s1_0 where s1_0.id=?
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /specialties/1
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.SpecialtyController
+           Method = com.tecsup.petclinic.webs.SpecialtyController#findById(Integer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":1,"name":"radiology","office":"Farewell","h_open":8,"h_close":18}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: insert into specialties (h_close,name,office,h_open,id) values (?,?,?,?,default)
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /specialties
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"74"]
+             Body = {"id":null,"name":"cardiology","office":null,"h_open":null,"h_close":null}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.SpecialtyController
+           Method = com.tecsup.petclinic.webs.SpecialtyController#create(SpecialtyDTO)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":7,"name":"cardiology","office":null,"h_open":null,"h_close":null}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: select s1_0.id,s1_0.h_close,s1_0.name,s1_0.office,s1_0.h_open from specialties s1_0 where s1_0.id=?
+Hibernate: select s1_0.id,s1_0.h_close,s1_0.name,s1_0.office,s1_0.h_open from specialties s1_0 order by s1_0.id
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.202 s -- in com.tecsup.petclinic.webs.SpecialtyControllerTest
+[INFO] Running com.tecsup.petclinic.webs.VetControllerTest
+2026-11-06T22:54:48.165-05:00  INFO 8940 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tecsup.petclinic.webs.VetControllerTest]: VetControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-06T22:54:48.167-05:00  INFO 8940 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tecsup.petclinic.PetClinicApplication for test class com.tecsup.petclinic.webs.VetControllerTest
+Hibernate: select count(*) from vets v1_0 where v1_0.id=?
+Hibernate: insert into vets (first_name,last_name,id) values (?,?,default)
+Hibernate: select v1_0.id,v1_0.first_name,v1_0.last_name from vets v1_0 where v1_0.id=?
+Hibernate: update vets set first_name=?,last_name=? where id=?
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /vets/7
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"47"]
+             Body = {"id":7,"firstName":"Carla","lastName":"Rojas"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.VetController
+           Method = com.tecsup.petclinic.webs.VetController#update(VetDTO, Integer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":7,"firstName":"Carla","lastName":"Rojas"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: select v1_0.id,v1_0.first_name,v1_0.last_name from vets v1_0 where v1_0.id=?
+Hibernate: select count(*) from vets v1_0 where v1_0.id=?
+Hibernate: select v1_0.id,v1_0.first_name,v1_0.last_name from vets v1_0 where v1_0.id=?
+Hibernate: delete from vet_specialties where vet_id=?
+Hibernate: delete from vets where id=?
+Hibernate: select v1_0.id,v1_0.first_name,v1_0.last_name from vets v1_0
+Hibernate: insert into vets (first_name,last_name,id) values (?,?,default)
+Hibernate: select count(*) from vets v1_0 where v1_0.id=?
+Hibernate: select v1_0.id,v1_0.first_name,v1_0.last_name from vets v1_0 where v1_0.id=?
+Hibernate: delete from vet_specialties where vet_id=?
+Hibernate: delete from vets where id=?
+Hibernate: select v1_0.id,v1_0.first_name,v1_0.last_name from vets v1_0 where v1_0.id=?
+Hibernate: select v1_0.id,v1_0.first_name,v1_0.last_name from vets v1_0 where v1_0.id=?
+Hibernate: select v1_0.id,v1_0.first_name,v1_0.last_name from vets v1_0 where v1_0.id=?
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /vets/1
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.VetController
+           Method = com.tecsup.petclinic.webs.VetController#findById(Integer)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":1,"firstName":"James","lastName":"Carter"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: insert into vets (first_name,last_name,id) values (?,?,default)
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /vets
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"49"]
+             Body = {"id":null,"firstName":"Ana","lastName":"Torres"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.VetController
+           Method = com.tecsup.petclinic.webs.VetController#create(VetDTO)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":9,"firstName":"Ana","lastName":"Torres"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.828 s -- in com.tecsup.petclinic.webs.VetControllerTest
+[INFO] Running com.tecsup.petclinic.webs.VisitControllerTest
+2026-11-06T22:54:48.995-05:00  INFO 8940 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tecsup.petclinic.webs.VisitControllerTest]: VisitControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-06T22:54:48.999-05:00  INFO 8940 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tecsup.petclinic.PetClinicApplication for test class com.tecsup.petclinic.webs.VisitControllerTest
+Hibernate: select count(*) from visits v1_0 where v1_0.id=?
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Hibernate: insert into visits (description,pet_id,visit_date,id) values (?,?,?,default)
+Hibernate: select count(*) from visits v1_0 where v1_0.id=?
+Hibernate: select v1_0.id,v1_0.description,v1_0.pet_id,v1_0.visit_date from visits v1_0 where v1_0.id=?
+Hibernate: delete from visits where id=?
+Hibernate: select v1_0.id,v1_0.description,v1_0.pet_id,v1_0.visit_date from visits v1_0 where v1_0.id=?
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Hibernate: insert into visits (description,pet_id,visit_date,id) values (?,?,?,default)
+Hibernate: select v1_0.id,v1_0.description,v1_0.pet_id,v1_0.visit_date from visits v1_0 where v1_0.id=?
+Hibernate: update visits set description=?,pet_id=?,visit_date=? where id=?
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /visits/8
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"77"]
+             Body = {"id":8,"petId":1,"visitDate":"2026-12-01","description":"surgery follow-up"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.VisitController
+           Method = com.tecsup.petclinic.webs.VisitController#update(VisitDTO, Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":8,"petId":1,"visitDate":"2026-12-01","description":"surgery follow-up"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: select v1_0.id,v1_0.description,v1_0.pet_id,v1_0.visit_date from visits v1_0 where v1_0.id=?
+Hibernate: select count(*) from visits v1_0 where v1_0.id=?
+Hibernate: select v1_0.id,v1_0.description,v1_0.pet_id,v1_0.visit_date from visits v1_0 where v1_0.id=?
+Hibernate: delete from visits where id=?
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Hibernate: select p1_0.id,p1_0.birth_date,p1_0.name,p1_0.owner_id,p1_0.type_id from pets p1_0 where p1_0.id=?
+Hibernate: insert into visits (description,pet_id,visit_date,id) values (?,?,?,default)
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /visits
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"74"]
+             Body = {"id":null,"petId":1,"visitDate":"2026-11-06","description":"vaccination"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.VisitController
+           Method = com.tecsup.petclinic.webs.VisitController#create(VisitDTO)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":9,"petId":1,"visitDate":"2026-11-06","description":"vaccination"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: select v1_0.id,v1_0.description,v1_0.pet_id,v1_0.visit_date from visits v1_0 where v1_0.id=?
+Hibernate: select v1_0.id,v1_0.description,v1_0.pet_id,v1_0.visit_date from visits v1_0 where v1_0.id=?
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /visits/1
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.VisitController
+           Method = com.tecsup.petclinic.webs.VisitController#findById(Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":1,"petId":7,"visitDate":"2010-03-04","description":"rabies shot"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: select v1_0.id,v1_0.description,v1_0.pet_id,v1_0.visit_date from visits v1_0
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.165 s -- in com.tecsup.petclinic.webs.VisitControllerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  27.970 s
+[INFO] Finished at: 2026-11-06T22:54:49-05:00
+[INFO] ------------------------------------------------------------------------

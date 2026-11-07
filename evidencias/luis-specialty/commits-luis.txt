@@ -1,0 +1,15 @@
+commit 5424072136a0c2f0f680eeb380542643e837887c
+Author:     Luis Abad <pablo.anchiraicoabad@gmail.com>
+AuthorDate: Fri Nov 6 22:50:23 2026 -0500
+Commit:     Luis Abad <pablo.anchiraicoabad@gmail.com>
+CommitDate: Fri Nov 6 22:50:23 2026 -0500
+
+    feat(specialty): agregar servicio, filtros y validacion de horarios
+
+commit 55ad1b1304b722650cba9977896b682621cfdfc0
+Author:     Luis Abad <pablo.anchiraicoabad@gmail.com>
+AuthorDate: Fri Nov 6 22:50:23 2026 -0500
+Commit:     Luis Abad <pablo.anchiraicoabad@gmail.com>
+CommitDate: Fri Nov 6 22:50:23 2026 -0500
+
+    test(specialty): completar escenarios H2 y Mockito con datos aislados

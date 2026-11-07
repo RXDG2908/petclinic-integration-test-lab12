@@ -1,0 +1,31 @@
+*   578683d (HEAD -> feature/abad-specialty, origin/feature/abad-specialty) Merge remote-tracking branch 'origin/feature/abad-specialty' into feature/abad-specialty
+|\  
+* | 55ad1b1 test(specialty): completar escenarios H2 y Mockito con datos aislados
+* | 5424072 feat(specialty): agregar servicio, filtros y validacion de horarios
+| | *   950739c (origin/main, origin/HEAD) Merge pull request #2 from RXDG2908/feature/david-owner
+| | |\  
+| | | *   f3a7e07 (origin/feature/david-owner) Se resuelve conflicto en README al integrar con main
+| | | |\  
+| | | |/  
+| | |/|   
+| | * |   5ead453 Merge pull request #3 from RXDG2908/feature/abad-specialty
+| | |\ \  
+| | |/ /  
+| |/| |   
+| * | | 9061fba Se resuelve conflicto en README al integrar con main
+| * | | 00b2fa4 Merge remote-tracking branch 'origin/main' into feature/abad-specialty
+|/| | | 
+| |/ /  
+* | | 354ba26 Pruebas de integración de Specialty
+| | *   780e161 Se resuelve conflicto en README al integrar con main
+| | |\  
+| | |/  
+| |/|   
+| * | ca93d03 Merge pull request #1 from RXDG2908/feature/renzo-vet-visit
+|/| | 
+| * | ac68f68 (origin/feature/renzo-vet-visit) Pruebas de integración de Vet y Visit
+|/ /  
+| * f2176cc Ejercicio 2: pruebas de integracion para Owner
+| * 417b6fe Pruebas de integración de Owner
+|/  
+* 72220f2 (main) Proyecto base PetClinic para el Laboratorio 12

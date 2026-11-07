@@ -1,0 +1,258 @@
+commit 55ad1b1304b722650cba9977896b682621cfdfc0
+Author: Luis Abad <pablo.anchiraicoabad@gmail.com>
+Date:   Fri Nov 6 22:50:23 2026 -0500
+
+    test(specialty): completar escenarios H2 y Mockito con datos aislados
+
+diff --git a/src/test/java/com/tecsup/petclinic/helpers/SpecialtyObjectCreator.java b/src/test/java/com/tecsup/petclinic/helpers/SpecialtyObjectCreator.java
+new file mode 100644
+index 0000000..5522828
+--- /dev/null
++++ b/src/test/java/com/tecsup/petclinic/helpers/SpecialtyObjectCreator.java
+@@ -0,0 +1,13 @@
++package com.tecsup.petclinic.helpers;
++
++import com.tecsup.petclinic.dtos.SpecialtyDTO;
++
++public final class SpecialtyObjectCreator {
++    private SpecialtyObjectCreator() {
++    }
++
++    public static SpecialtyDTO specialty(Integer id, String name, String office) {
++        return SpecialtyDTO.builder().id(id).name(name).office(office)
++                .openingHour(8).closingHour(18).build();
++    }
++}
+\ No newline at end of file
+diff --git a/src/test/java/com/tecsup/petclinic/webs/SpecialtyControllerMockitoTest.java b/src/test/java/com/tecsup/petclinic/webs/SpecialtyControllerMockitoTest.java
+new file mode 100644
+index 0000000..0b4a87c
+--- /dev/null
++++ b/src/test/java/com/tecsup/petclinic/webs/SpecialtyControllerMockitoTest.java
+@@ -0,0 +1,132 @@
++package com.tecsup.petclinic.webs;
++
++import com.fasterxml.jackson.databind.ObjectMapper;
++import com.tecsup.petclinic.dtos.SpecialtyDTO;
++import com.tecsup.petclinic.helpers.SpecialtyObjectCreator;
++import com.tecsup.petclinic.services.SpecialtyService;
++import org.junit.jupiter.api.Test;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
++import org.springframework.boot.test.context.SpringBootTest;
++import org.springframework.http.HttpStatus;
++import org.springframework.http.MediaType;
++import org.springframework.test.context.bean.override.mockito.MockitoBean;
++import org.springframework.test.web.servlet.MockMvc;
++import org.springframework.web.server.ResponseStatusException;
++import java.util.List;
++
++import static org.hamcrest.CoreMatchers.is;
++import static org.mockito.Mockito.*;
++import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
++import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
++
++@SpringBootTest
++@AutoConfigureMockMvc
++public class SpecialtyControllerMockitoTest {
++    @Autowired
++    private MockMvc mockMvc;
++
++    @Autowired
++    private ObjectMapper objectMapper;
++
++    @MockitoBean
++    private SpecialtyService specialtyService;
++
++    @Test
++    public void testFindAllSpecialties() throws Exception {
++        when(specialtyService.findAll(null, null)).thenReturn(List.of(
++                SpecialtyObjectCreator.specialty(1, "radiology", "Farewell")));
++        mockMvc.perform(get("/specialties"))
++                .andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON))
++                .andExpect(jsonPath("$.length()", is(1))).andExpect(jsonPath("$[0].id", is(1)));
++        verify(specialtyService).findAll(null, null);
++    }
++
++    @Test
++    public void testFindSpecialtyOK() throws Exception {
++        when(specialtyService.findById(1)).thenReturn(
++                SpecialtyObjectCreator.specialty(1, "radiology", "Farewell"));
++        mockMvc.perform(get("/specialties/1")).andExpect(status().isOk())
++                .andExpect(jsonPath("$.id", is(1))).andExpect(jsonPath("$.name", is("radiology")));
++        verify(specialtyService).findById(1);
++    }
++
++    @Test
++    public void testFindSpecialtyKO() throws Exception {
++        when(specialtyService.findById(666)).thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND));
++        mockMvc.perform(get("/specialties/666")).andExpect(status().isNotFound());
++        verify(specialtyService).findById(666);
++    }
++
++    @Test
++    public void testCreateSpecialty() throws Exception {
++        SpecialtyDTO input = SpecialtyObjectCreator.specialty(null, "cardiology", "Lima");
++        when(specialtyService.create(input)).thenReturn(
++                SpecialtyObjectCreator.specialty(10, "cardiology", "Lima"));
++        mockMvc.perform(post("/specialties").contentType(MediaType.APPLICATION_JSON)
++                        .content(objectMapper.writeValueAsString(input)))
++                .andExpect(status().isCreated()).andExpect(jsonPath("$.id", is(10)))
++                .andExpect(jsonPath("$.name", is("cardiology")))
++                .andExpect(jsonPath("$.office", is("Lima")))
++                .andExpect(jsonPath("$.h_open", is(8))).andExpect(jsonPath("$.h_close", is(18)));
++        verify(specialtyService).create(input);
++    }
++
++    @Test
++    public void testFindByName() throws Exception {
++        when(specialtyService.findAll("surgery", null)).thenReturn(List.of(
++                SpecialtyObjectCreator.specialty(2, "surgery", "Maryland")));
++        mockMvc.perform(get("/specialties").param("name", "surgery"))
++                .andExpect(status().isOk()).andExpect(jsonPath("$.length()", is(1)))
++                .andExpect(jsonPath("$[0].name", is("surgery")));
++        verify(specialtyService).findAll("surgery", null);
++    }
++
++    @Test
++    public void testFindByOffice() throws Exception {
++        when(specialtyService.findAll(null, "Farewell")).thenReturn(List.of(
++                SpecialtyObjectCreator.specialty(1, "radiology", "Farewell")));
++        mockMvc.perform(get("/specialties").param("office", "Farewell"))
++                .andExpect(status().isOk()).andExpect(jsonPath("$.length()", is(1)))
++                .andExpect(jsonPath("$[0].name", is("radiology")))
++                .andExpect(jsonPath("$[0].office", is("Farewell")));
++        verify(specialtyService).findAll(null, "Farewell");
++    }
++
++    @Test
++    public void testCreateSpecialty_InvalidSchedule() throws Exception {
++        SpecialtyDTO input = SpecialtyObjectCreator.specialty(null, "invalid", "Lima");
++        input.setClosingHour(8);
++        when(specialtyService.create(input)).thenThrow(new ResponseStatusException(HttpStatus.BAD_REQUEST));
++        mockMvc.perform(post("/specialties").contentType(MediaType.APPLICATION_JSON)
++                        .content(objectMapper.writeValueAsString(input)))
++                .andExpect(status().isBadRequest());
++        verify(specialtyService).create(input);
++    }
++
++    @Test
++    public void testCreateSpecialty_InvalidHourRange() throws Exception {
++        SpecialtyDTO input = SpecialtyObjectCreator.specialty(null, "invalid", "Lima");
++        input.setClosingHour(24);
++        when(specialtyService.create(input)).thenThrow(new ResponseStatusException(HttpStatus.BAD_REQUEST));
++        mockMvc.perform(post("/specialties").contentType(MediaType.APPLICATION_JSON)
++                        .content(objectMapper.writeValueAsString(input)))
++                .andExpect(status().isBadRequest());
++        verify(specialtyService).create(input);
++    }
++
++    @Test
++    public void testDeleteSpecialty() throws Exception {
++        SpecialtyDTO input = SpecialtyObjectCreator.specialty(null, "temporary", "Lima");
++        when(specialtyService.create(input)).thenReturn(
++                SpecialtyObjectCreator.specialty(10, "temporary", "Lima"));
++        doNothing().when(specialtyService).delete(10);
++        String response = mockMvc.perform(post("/specialties").contentType(MediaType.APPLICATION_JSON)
++                        .content(objectMapper.writeValueAsString(input)))
++                .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
++        int id = objectMapper.readTree(response).get("id").asInt();
++        mockMvc.perform(delete("/specialties/" + id)).andExpect(status().isOk());
++        verify(specialtyService).create(input);
++        verify(specialtyService).delete(10);
++    }
++}
+\ No newline at end of file
+diff --git a/src/test/java/com/tecsup/petclinic/webs/SpecialtyControllerTest.java b/src/test/java/com/tecsup/petclinic/webs/SpecialtyControllerTest.java
+index 0df4908..0fce6c3 100644
+--- a/src/test/java/com/tecsup/petclinic/webs/SpecialtyControllerTest.java
++++ b/src/test/java/com/tecsup/petclinic/webs/SpecialtyControllerTest.java
+@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
+ import com.jayway.jsonpath.JsonPath;
+ import com.tecsup.petclinic.dtos.SpecialtyDTO;
+ import org.junit.jupiter.api.Test;
++import org.springframework.transaction.annotation.Transactional;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+ import org.springframework.boot.test.context.SpringBootTest;
+@@ -22,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
+  */
+ @AutoConfigureMockMvc
+ @SpringBootTest
++@Transactional
+ public class SpecialtyControllerTest {
+ 
+ 	private static final ObjectMapper om = new ObjectMapper();
+@@ -147,4 +149,72 @@ public class SpecialtyControllerTest {
+ 				.andExpect(status().isOk());
+ 	}
+ 
++    @Test
++    public void testFindByName() throws Exception {
++        mockMvc.perform(get("/specialties").param("name", "surgery"))
++                .andExpect(status().isOk())
++                .andExpect(jsonPath("$.length()", is(1)))
++                .andExpect(jsonPath("$[0].id", is(2)))
++                .andExpect(jsonPath("$[0].name", is("surgery")));
++    }
++
++    @Test
++    public void testFindByOffice() throws Exception {
++        mockMvc.perform(get("/specialties").param("office", "Farewell"))
++                .andExpect(status().isOk())
++                .andExpect(jsonPath("$.length()", is(1)))
++                .andExpect(jsonPath("$[0].name", is("radiology")))
++                .andExpect(jsonPath("$[0].office", is("Farewell")));
++    }
++
++    @Test
++    public void testCreateSpecialty_InvalidSchedule() throws Exception {
++        for (int closing : new int[]{8, 7}) {
++            SpecialtyDTO specialty = SpecialtyDTO.builder().name("invalid")
++                    .openingHour(8).closingHour(closing).build();
++            mockMvc.perform(post("/specialties").contentType(MediaType.APPLICATION_JSON)
++                            .content(om.writeValueAsString(specialty)))
++                    .andExpect(status().isBadRequest());
++        }
++    }
++
++    @Test
++    public void testCreateSpecialty_InvalidHourRange() throws Exception {
++        for (int[] hours : new int[][]{{-1, 18}, {24, 25}, {8, 24}, {-2, -1}}) {
++            SpecialtyDTO specialty = SpecialtyDTO.builder().name("invalid")
++                    .openingHour(hours[0]).closingHour(hours[1]).build();
++            mockMvc.perform(post("/specialties").contentType(MediaType.APPLICATION_JSON)
++                            .content(om.writeValueAsString(specialty)))
++                    .andExpect(status().isBadRequest());
++        }
++    }
++
++    @Test
++    public void testCreateSpecialty_WithSchedule() throws Exception {
++        SpecialtyDTO specialty = SpecialtyDTO.builder().name("scheduled").office("Lima")
++                .openingHour(0).closingHour(23).build();
++        String response = mockMvc.perform(post("/specialties").contentType(MediaType.APPLICATION_JSON)
++                        .content(om.writeValueAsString(specialty)))
++                .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
++        Integer id = JsonPath.parse(response).read("$.id");
++        mockMvc.perform(get("/specialties/" + id))
++                .andExpect(status().isOk())
++                .andExpect(jsonPath("$.office", is("Lima")))
++                .andExpect(jsonPath("$.h_open", is(0)))
++                .andExpect(jsonPath("$.h_close", is(23)));
++    }
++
++    @Test
++    public void testFindByNameAndOffice() throws Exception {
++        mockMvc.perform(get("/specialties").param("name", "surgery").param("office", "Farewell"))
++                .andExpect(status().isOk()).andExpect(jsonPath("$.length()", is(0)));
++    }
++
++    @Test
++    public void testCreateSpecialty_IncompleteSchedule() throws Exception {
++        SpecialtyDTO specialty = SpecialtyDTO.builder().name("invalid").openingHour(8).build();
++        mockMvc.perform(post("/specialties").contentType(MediaType.APPLICATION_JSON)
++                        .content(om.writeValueAsString(specialty)))
++                .andExpect(status().isBadRequest());
++    }
+ }

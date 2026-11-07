@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.tecsup.petclinic.services.PetServiceMockitoTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.922 s -- in com.tecsup.petclinic.services.PetServiceMockitoTest

@@ -18,6 +18,6 @@ Cada entidad tiene su controlador REST, su repositorio, su DTO y su clase `XxxCo
 | 3 | Abad | Specialty | feature/abad-specialty |
 
 ### Avance
-- [ ] Parte 1 - Vet y Visit
+- [x] Parte 1 - Vet y Visit
 - [ ] Parte 2 - Owner
 - [ ] Parte 3 - Specialty

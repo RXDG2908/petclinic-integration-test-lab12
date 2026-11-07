@@ -17,9 +17,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-/**
- * Pruebas de integracion de la entidad Owner (controlador, repositorio y base H2)
- */
 @AutoConfigureMockMvc
 @SpringBootTest
 public class OwnerControllerTest {

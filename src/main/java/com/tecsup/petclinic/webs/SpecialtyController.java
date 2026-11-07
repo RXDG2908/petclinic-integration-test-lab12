@@ -1,66 +1,45 @@
 package com.tecsup.petclinic.webs;
 
 import com.tecsup.petclinic.dtos.SpecialtyDTO;
-import com.tecsup.petclinic.entities.Specialty;
-import com.tecsup.petclinic.repositories.SpecialtyRepository;
+import com.tecsup.petclinic.services.SpecialtyService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 public class SpecialtyController {
+    private final SpecialtyService specialtyService;
 
-	private final SpecialtyRepository specialtyRepository;
+    public SpecialtyController(SpecialtyService specialtyService) {
+        this.specialtyService = specialtyService;
+    }
 
-	public SpecialtyController(SpecialtyRepository specialtyRepository) {
-		this.specialtyRepository = specialtyRepository;
-	}
+    @GetMapping("/specialties")
+    public ResponseEntity<List<SpecialtyDTO>> findAll(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String office) {
+        return ResponseEntity.ok(specialtyService.findAll(name, office));
+    }
 
-	private SpecialtyDTO toDto(Specialty specialty) {
-		return SpecialtyDTO.builder()
-				.id(specialty.getId())
-				.name(specialty.getName())
-				.build();
-	}
+    @GetMapping("/specialties/{id}")
+    public ResponseEntity<SpecialtyDTO> findById(@PathVariable Integer id) {
+        return ResponseEntity.ok(specialtyService.findById(id));
+    }
 
-	@GetMapping(value = "/specialties")
-	public ResponseEntity<List<SpecialtyDTO>> findAll() {
-		List<SpecialtyDTO> list = specialtyRepository.findAll(org.springframework.data.domain.Sort.by("id")).stream().map(this::toDto).collect(Collectors.toList());
-		return ResponseEntity.ok(list);
-	}
+    @PostMapping("/specialties")
+    public ResponseEntity<SpecialtyDTO> create(@RequestBody SpecialtyDTO specialty) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(specialtyService.create(specialty));
+    }
 
-	@GetMapping(value = "/specialties/{id}")
-	public ResponseEntity<SpecialtyDTO> findById(@PathVariable Integer id) {
-		return specialtyRepository.findById(id)
-				.map(specialty -> ResponseEntity.ok(toDto(specialty)))
-				.orElse(ResponseEntity.notFound().build());
-	}
+    @PutMapping("/specialties/{id}")
+    public ResponseEntity<SpecialtyDTO> update(@RequestBody SpecialtyDTO specialty, @PathVariable Integer id) {
+        return ResponseEntity.ok(specialtyService.update(id, specialty));
+    }
 
-	@PostMapping(value = "/specialties")
-	public ResponseEntity<SpecialtyDTO> create(@RequestBody SpecialtyDTO specialtyDTO) {
-		Specialty specialty = new Specialty();
-		specialty.setName(specialtyDTO.getName());
-		return ResponseEntity.status(HttpStatus.CREATED).body(toDto(specialtyRepository.save(specialty)));
-	}
-
-	@PutMapping(value = "/specialties/{id}")
-	public ResponseEntity<SpecialtyDTO> update(@RequestBody SpecialtyDTO specialtyDTO, @PathVariable Integer id) {
-		return specialtyRepository.findById(id).map(specialty -> {
-			specialty.setName(specialtyDTO.getName());
-			return ResponseEntity.ok(toDto(specialtyRepository.save(specialty)));
-		}).orElse(ResponseEntity.notFound().build());
-	}
-
-	@DeleteMapping(value = "/specialties/{id}")
-	public ResponseEntity<String> delete(@PathVariable Integer id) {
-		if (!specialtyRepository.existsById(id)) {
-			return ResponseEntity.notFound().build();
-		}
-		specialtyRepository.deleteById(id);
-		return ResponseEntity.ok(" Delete ID :" + id);
-	}
-
+    @DeleteMapping("/specialties/{id}")
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
+        specialtyService.delete(id);
+        return ResponseEntity.ok(" Delete ID :" + id);
+    }
 }

@@ -25,7 +25,16 @@ public class Specialty {
 	@Column(name = "name")
 	private String name;
 
-	@ManyToMany(mappedBy = "specialties", fetch = FetchType.LAZY)
+	@Column(name = "office")
+    private String office;
+
+    @Column(name = "h_open")
+    private Integer openingHour;
+
+    @Column(name = "h_close")
+    private Integer closingHour;
+
+    @ManyToMany(mappedBy = "specialties", fetch = FetchType.LAZY)
 	@ToString.Exclude
 	//@EqualsAndHashCode.Exclude
 	private Set<Vet> vets;

@@ -20,4 +20,4 @@ Cada entidad tiene su controlador REST, su repositorio, su DTO y su clase `XxxCo
 ### Avance
 - [ ] Parte 1 - Vet y Visit
 - [ ] Parte 2 - Owner
-- [ ] Parte 3 - Specialty
+- [x] Parte 3 - Specialty

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 import com.tecsup.petclinic.dtos.SpecialtyDTO;
 import org.junit.jupiter.api.Test;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @AutoConfigureMockMvc
 @SpringBootTest
+@Transactional
 public class SpecialtyControllerTest {
 
 	private static final ObjectMapper om = new ObjectMapper();
@@ -147,4 +149,72 @@ public class SpecialtyControllerTest {
 				.andExpect(status().isOk());
 	}
 
+    @Test
+    public void testFindByName() throws Exception {
+        mockMvc.perform(get("/specialties").param("name", "surgery"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()", is(1)))
+                .andExpect(jsonPath("$[0].id", is(2)))
+                .andExpect(jsonPath("$[0].name", is("surgery")));
+    }
+
+    @Test
+    public void testFindByOffice() throws Exception {
+        mockMvc.perform(get("/specialties").param("office", "Farewell"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()", is(1)))
+                .andExpect(jsonPath("$[0].name", is("radiology")))
+                .andExpect(jsonPath("$[0].office", is("Farewell")));
+    }
+
+    @Test
+    public void testCreateSpecialty_InvalidSchedule() throws Exception {
+        for (int closing : new int[]{8, 7}) {
+            SpecialtyDTO specialty = SpecialtyDTO.builder().name("invalid")
+                    .openingHour(8).closingHour(closing).build();
+            mockMvc.perform(post("/specialties").contentType(MediaType.APPLICATION_JSON)
+                            .content(om.writeValueAsString(specialty)))
+                    .andExpect(status().isBadRequest());
+        }
+    }
+
+    @Test
+    public void testCreateSpecialty_InvalidHourRange() throws Exception {
+        for (int[] hours : new int[][]{{-1, 18}, {24, 25}, {8, 24}, {-2, -1}}) {
+            SpecialtyDTO specialty = SpecialtyDTO.builder().name("invalid")
+                    .openingHour(hours[0]).closingHour(hours[1]).build();
+            mockMvc.perform(post("/specialties").contentType(MediaType.APPLICATION_JSON)
+                            .content(om.writeValueAsString(specialty)))
+                    .andExpect(status().isBadRequest());
+        }
+    }
+
+    @Test
+    public void testCreateSpecialty_WithSchedule() throws Exception {
+        SpecialtyDTO specialty = SpecialtyDTO.builder().name("scheduled").office("Lima")
+                .openingHour(0).closingHour(23).build();
+        String response = mockMvc.perform(post("/specialties").contentType(MediaType.APPLICATION_JSON)
+                        .content(om.writeValueAsString(specialty)))
+                .andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
+        Integer id = JsonPath.parse(response).read("$.id");
+        mockMvc.perform(get("/specialties/" + id))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.office", is("Lima")))
+                .andExpect(jsonPath("$.h_open", is(0)))
+                .andExpect(jsonPath("$.h_close", is(23)));
+    }
+
+    @Test
+    public void testFindByNameAndOffice() throws Exception {
+        mockMvc.perform(get("/specialties").param("name", "surgery").param("office", "Farewell"))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.length()", is(0)));
+    }
+
+    @Test
+    public void testCreateSpecialty_IncompleteSchedule() throws Exception {
+        SpecialtyDTO specialty = SpecialtyDTO.builder().name("invalid").openingHour(8).build();
+        mockMvc.perform(post("/specialties").contentType(MediaType.APPLICATION_JSON)
+                        .content(om.writeValueAsString(specialty)))
+                .andExpect(status().isBadRequest());
+    }
 }
